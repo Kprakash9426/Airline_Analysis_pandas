@@ -37,3 +37,62 @@ print(df.describe(include=object))
 #to check null values
 print("----------displaying the null values count --------")
 print(df.isnull().sum())
+print(df.shape)
+
+# it returns percentage null values each column in the data frame
+df.isnull().sum()/df.shape[0]*100
+
+print("it returns percentage null values each column in the data frame")
+print(df.isnull().sum()/df.shape[0]*100)
+
+print("----most frequent values----=---")
+print(df['Airline'].mode())
+
+print("__filling  null values using mode function____")
+df['Airline']=df['Airline'].fillna(df['Airline'].mode()[0])
+print(df['Airline'])
+
+# print(df.isnull().sum())
+
+df['Date_of_Journey'].mode()
+
+print("__filling  null values using mode function____")
+df['Date_of_Journey']=df['Date_of_Journey'].fillna(df['Date_of_Journey'].mode()[0])
+print(df['Date_of_Journey'])
+
+df['Source'].mode()
+df['Source']=df['Source'].fillna(df['Source'].mode()[0])
+
+df['Destination'].mode()
+df['Destination']=df['Destination'].fillna(df['Destination'].mode()[0])
+
+df['Route'].mode()
+df['Route']=df['Route'].fillna(df['Route'].mode()[0])
+
+df['Dep_Time'].mode()
+df['Dep_Time']=df['Dep_Time'].fillna(df['Dep_Time'].mode()[0])
+
+df['Arrival_Time'].mode()
+df['Arrival_Time']=df['Arrival_Time'].fillna(df['Arrival_Time'].mode()[0])
+
+df['Duration'].mode()
+df['Duration']=df['Duration'].fillna(df['Duration'].mode()[0])
+
+df['Total_Stops'].mode()
+df['Total_Stops']=df['Total_Stops'].fillna(df['Total_Stops'].mode()[0])
+
+
+df['Additional_Info'].mode()
+df['Additional_Info']=df['Additional_Info'].fillna(df['Additional_Info'].mode()[0])
+
+
+
+df['Price'].mean()
+df['Price'].median()
+
+
+sns.boxplot(df.Price,color="red")
+plt.show()
+
+df['Price']=df['Price'].fillna(df['Price'].mean())
+print(df.isnull().sum())
